@@ -1,4 +1,4 @@
-
+import axios from "axios";
 import Notiflix from 'notiflix';
 
 import { fetchBreeds, catByBreed } from "./cat-api.js"
