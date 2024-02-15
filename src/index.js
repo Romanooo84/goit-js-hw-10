@@ -1,5 +1,6 @@
 import axios from "axios";
 import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select'
 import { fetchBreeds, catByBreed } from "./cat-api.js"
 
 //inicjalizacja Notyiflix
@@ -57,21 +58,10 @@ fetchBreeds(loader, select, catInfo)
         let catId = select.value
         catByBreed(catId, loader, select, catInfo)
             .then(data => {
-                catInfo.innerHTML = `<img heigt=240px width=480px src=${data[0].url} alt="Cat Image">`
+                catInfo.innerHTML = `<img heigt=540px width=780px src=${data[0].url} alt="Cat Image">`
             })
             .then(() => {
-                console.log('działa')
-                let idList = catList.flatMap(cat => cat.id)
-                let catNo = idList.indexOf(catId)
-                let description = (catList[catNo].description)
-                let breed = (catList[catNo].name)
-                let temperament = (catList[catNo].temperament)
-                catInfo.innerHTML += `
-                <ul>
-                <li>${breed}</li>
-                <li>${description}</li>
-                <li>${temperament}</li>
-                </ul>`  
+                createInfo(catId)     
             })
             .catch(error => {
             Notiflix.Notify.warning('Error fetching data:'+error);
@@ -79,4 +69,18 @@ fetchBreeds(loader, select, catInfo)
             divInfo.classList.remove('visually-hidden')
             });
     })
+
+        function createInfo(catId) {
+            let idList = catList.flatMap(cat => cat.id)
+                    let catNo = idList.indexOf(catId)
+                    let description = (catList[catNo].description)
+                    let breed = (catList[catNo].name)
+                    let temperament = (catList[catNo].temperament)
+                    catInfo.innerHTML += `
+                    <ul>
+                    <li class='breed'>${breed}</li>
+                    <li>${description}</li>
+                    <li><span class='temperament'>Temperament: </span>${temperament}</li>
+                    </ul>`
+        }
  

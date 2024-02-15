@@ -90,3 +90,17 @@ ul {
     transform: rotate(-360deg);
   }
 }
+
+li{
+  padding: 2px;
+}
+
+.temperament {
+  font-weight: 700;
+}
+
+.breed{
+  font-size: 30px;
+  font-weight: 700;
+}
+
