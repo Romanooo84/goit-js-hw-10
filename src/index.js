@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import SlimSelect from 'slim-select'
 import { fetchBreeds, catByBreed } from "./cat-api.js"
 
+
 //inicjalizacja Notyiflix
 Notiflix.Notify.init({
   width: '300px',
@@ -76,8 +77,8 @@ fetchBreeds(loader, select, catInfo)
                     let description = (catList[catNo].description)
                     let breed = (catList[catNo].name)
                     let temperament = (catList[catNo].temperament)
-                    catInfo.innerHTML += `
-                    <ul>
+                    catInfo.innerHTML +=
+                    `<ul>
                     <li class='breed'>${breed}</li>
                     <li>${description}</li>
                     <li><span class='temperament'>Temperament: </span>${temperament}</li>
