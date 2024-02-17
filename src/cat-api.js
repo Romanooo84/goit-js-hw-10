@@ -21,16 +21,7 @@ Notiflix.Notify.init({
     fontAwesomeClassName: 'fas fa-exclamation-circle',
     fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
     backOverlayColor: 'rgba(238,191,49,0.2)',
-  },
-  success: {
-    background: '#32c682',
-    textColor: '#fff',
-    childClassName: 'notiflix-notify-success',
-    notiflixIconColor: 'rgba(0,0,0,0.2)',
-    fontAwesomeClassName: 'fas fa-check-circle',
-    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
-    backOverlayColor: 'rgba(50,198,130,0.2)',
-  },
+  }
 
 });
 
@@ -71,17 +62,16 @@ export function catByBreed(breedId, loadElement, select, divInfo) {
                 Notiflix.Notify.warning("Response failed");
                 throw new Error(response.status);
             }
-            loadElement.classList.remove('loaderData')
+            loadElement.classList.add('visually-hidden')
             select.classList.remove('visually-hidden')
             divInfo.classList.remove('visually-hidden')
             return response.json()
         })
         .then(data => {
-            console.log(data);
             return data;
         })
         .catch(error => {
-            Notiflix.Notify.warning('Error fetching data:' + error);
+            Notiflix.Notify.warning('Błąd wybierania danych kota:' + error);
             select.classList.remove('visually-hidden')
             divInfo.classList.remove('visually-hidden')
         });

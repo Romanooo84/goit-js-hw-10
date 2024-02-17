@@ -4,11 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/common.css">
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet">
+    <style>
+      .ss-main {
+        width: 200px;
+        background-color: #19181c;
+        color: #6e7075;
+      }
+    </style>
     <title>Homework 10</title>
   </head>
   <body>
+    <div class="divSelect">
+    <p >Choose Your Breed</p>
     <select class="breed-select" id="selectElement"></select>
-    <p class="loader"></p>
+    </div>
+    <div class="catLoader">
+      <div class="loader">
+        <div class="track">
+          <div class="mouse"></div>
+        </div>
+        <div class="face">
+          <div class="ears-container"></div>
+          <div class="eyes-container">
+            <div class="eye"></div>
+            <div class="eye"></div>
+          </div>
+          <div class="phiz">
+            <div class="nose"></div>
+            <div class="lip"></div>
+            <div class="mouth"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <p class="error"></p>
     <div class="cat-info"></div>
 
